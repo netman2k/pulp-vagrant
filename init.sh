@@ -1,6 +1,10 @@
 #!/bin/bash
+set -e 
+
 echo -e "\nDisabling PEERDNS to prevent using a domain DHCP gave us"
-echo "PEERDNS=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+echo "PEERDNS=no" >> /etc/sysconfig/network
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 systemctl restart network
 
 echo -e "\nDisabling SELinux..."
