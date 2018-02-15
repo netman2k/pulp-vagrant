@@ -21,7 +21,7 @@ Vagrant.configure('2') do |config|
   config.hostmanager.manage_guest = true
 
   config.vm.define :pulp do |server|
-    server.vm.hostname = 'pulp'
+    server.vm.hostname = 'pulp.nhnent.com'
     server.vm.network :private_network, :ip => '192.168.1.21'
     server.hostmanager.aliases = %w(master)
     server.vm.provider "virtualbox" do |vb|
@@ -29,14 +29,14 @@ Vagrant.configure('2') do |config|
     end
   end
   config.vm.define :node1 do |server|
-    server.vm.hostname = 'node1'
+    server.vm.hostname = 'node1.nhnent.com'
     server.vm.network :private_network, :ip => '192.168.1.22'
 #    server.vm.provider "virtualbox" do |vb|
 #      vb.memory = MEMORY
 #    end
   end
   config.vm.define :node2 do |server|
-    server.vm.hostname = 'node2'
+    server.vm.hostname = 'node2.nhnent.com'
     server.vm.network :private_network, :ip => '192.168.1.23'
 #    server.vm.provider "virtualbox" do |vb|
 #      vb.memory = MEMORY
