@@ -11,8 +11,13 @@ echo -e "\nDisabling SELinux..."
 setenforce 0
 sed -i 's/^\(SELinux=\)Enforcing/\1disabled/' /etc/selinux/config
 
+############# TESTING ONLY ################
 echo -e "\nDisabling FirewallD..."
 systemctl disable firewalld && systemctl stop $_
+
+echo -e "\nInstalling packages for testing..."
+yum install nfs-utils vim -y
+############# TESTING ONLY ################
 
 echo -e "\nEnabling EPEL repository..."
 yum install epel-release -y
