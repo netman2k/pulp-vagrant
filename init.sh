@@ -14,10 +14,11 @@ sed -i 's/^\(SELinux=\)Enforcing/\1disabled/' /etc/selinux/config
 echo -e "\nDisabling FirewallD..."
 systemctl disable firewalld && systemctl stop $_
 
+echo -e "\nEnabling EPEL repository..."
+yum install epel-release -y
+
 echo -e "\nAdding the Puppet repository..."
 rpm -Uhv https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
-
-yum clean expire-cache
 
 echo -e "\nInstalling some packages..."
 yum install -y puppet-agent
