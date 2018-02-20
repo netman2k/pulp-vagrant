@@ -9,7 +9,7 @@ systemctl restart network
 
 echo -e "\nDisabling SELinux..."
 setenforce 0
-sed -i 's/^\(SELinux=\)Enforcing/\1disabled/' /etc/selinux/config
+sed -i 's/^\(SELinux=\)enforcing/\1disabled/' /etc/selinux/config
 
 ############# TESTING ONLY ################
 echo -e "\nDisabling FirewallD..."
